@@ -116,6 +116,12 @@ window.onload = function () {
     ros = new ROSLIB.Ros({
         url: "ws://" + robot_IP + ":9090"
     });
+    ros.on('connection', function () {
+        console.log('Connected to ROSBridge server');
+    });
+    ros.on('error', function (error) {
+        console.error('Error connecting to ROSBridge server:', error);
+    });
     initVelocityPublisher();
     createJoystick();
     initTeleopKeyboard();
