@@ -1,0 +1,289 @@
+#title{
+    background-color: #EEEEEE;
+  }
+  
+  body{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .navbar-brand{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #03001C;
+  }
+  
+  .nav-item{
+    font-size: 1.25rem;
+    line-height: 2;
+    margin-right: 1rem;
+  }
+  
+  .nav-link{
+    color: Black;
+    padding-left: 2rem;
+  }
+  
+  .nav-link:hover{
+    color:#22A39F;
+  }
+  .navbar-brand:hover{
+    color:#22A39F;
+  }
+  
+  a{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+  }
+  h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #181D31;
+    line-height: 1.5;
+  }
+  
+  .container-fluid{
+    padding: 3% 5%;
+  }
+  
+  
+  .padd-top{
+    padding-top: 3%;
+  }
+  
+  .f-div-margin-top-bottom{
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+  .f-div-home{
+    padding: 6% 5% 5.25% 6%;
+  }
+  
+  
+  
+  .f-div-Industries{
+    padding: 6% 10% 6% 10%;
+  }
+  
+  h3{
+    font-weight: 900;
+  }
+  .p1{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #913175;
+  }
+  .p2{
+    font-size: 1rem;
+    font-weight: 500;
+    /* color: #2B3A55; */
+    color: white;
+  }
+  
+  .logo{
+    height: 80px;
+    width: 110px;
+  }
+  
+  h2{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #03001C;
+  }
+  
+  .padd-content{
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+  }
+  .text-align{
+    text-align: center;
+  }
+  .horizontal-center{
+    margin: 0 auto 0 auto;
+  }
+  .top-margin{
+    margin-top: 2%;
+  }
+  .horizontal-margin{
+    padding: 0 5% 0 5%;
+  }
+  
+  
+  .h3-why-color{
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #A5F1E9;
+  }
+  .h1-why-color{
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #EAFDFC;
+    padding-bottom: 2%;
+  }
+
+  .margin-use-cases{
+    margin: 0;
+    padding: 6% 10% 6% 10%;
+  }
+  .endr-img{
+    width: 250px;
+    margin: 5% 2% 5%;
+  }
+  .h2-use-cases{
+    font-family: 'Ubuntu', sans-serif;
+  }
+  .h3-use-cases{
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  .use-cases-content-margin{
+    margin-top: 5%;
+  }
+  .dropdown-item:focus, .dropdown-item:hover {
+    color: black;
+    background-color: #f8f9fa;
+  }
+  .dropdown-menu{
+    border-radius: 8%;
+  }
+  
+  .padd-h3-industries-use-cases{
+    padding: 5% 4.5%;
+  }
+  
+  .background-industries-use-cases{
+    background-color: #C0EEE4;
+  }
+  
+  /* Research-Team */
+  
+  .team-image{
+    width: 300px;
+    height:300px;
+  }
+  
+  .padding-content{
+    padding: 5% 3% 0 3%
+  }
+  
+  /* Publications */
+  .line1{
+    color: #913175;
+    font-weight: bold;
+  }
+  
+  .line3{
+    color: black;
+    font-weight: 500;
+  }
+  .dot-dot-hr{
+    border-style: none;
+    border-top-style: dotted;
+    border-color: grey;
+    border-width: 5px;
+    width: 40px;
+  }
+  .padd-publications{
+    padding: 0.5% 10% 5% 10%;
+  }
+  
+  .link{
+    padding-right: 2%;
+  }
+  
+  
+  /* Success Page */
+  .padd-Success{
+    padding: 19.1%;
+  }
+  .buttn:hover{
+    color: black;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /*  */
+  .anchor:hover{
+    color: white;
+  }
+  .title{
+    color: #EEEEEE;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .p-address{
+    color: grey;
+  }
+  
+  .copyright{
+    text-align: center;
+    font-size: 0.75rem;
+    padding-top: 0.5%;
+  }
+  
+  .decor{
+    color: white;
+    text-decoration: none;
+    padding-left: 2%;
+  }
+  
+  .decor:hover{
+    color: yellow;
+  }
+  .block-center{
+    display: block;
+    text-align: center;
+  }
+  
+  /* Media query for mobile screens */
+  @media only screen and (max-width: 767px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    .p1 {
+      font-size: 12px;
+    }
+  
+    p{
+      font-size: 12px;
+    }
+  
+    h3{
+      font-size: 20px;
+    }
+    h2{
+      font-size: 22px;
+    }
+    .h3-use-cases{
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    a{
+      font-size: 12px;
+    }
+  
+    .h3-why-color{
+      font-size: 20px;
+      font-weight: 900;
+      color: #A5F1E9;
+    }
+    .p2{
+      font-size: 12px;
+      font-weight: 500;
+      /* color: #2B3A55; */
+      color: white;
+    }
+    .h1-why-color{
+      font-size: 2rem;
+      font-weight: 300;
+      color: #EAFDFC;
+      padding-bottom: 2%;
+    }
+  }
