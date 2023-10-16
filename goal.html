@@ -64,41 +64,77 @@
       <div class="container-fluid">
         <!-- Navigation Goal Form -->
         <div class="row my-4">
-          <div class="col-md-2"></div>
           <div class="col-md-8">
-            <h4>Navigation Goal</h4>
-            <form id="goal-form">
-              <div class="form-group">
-                <label for="goal-x">X Coordinate:</label>
-                <input
-                  type="number"
-                  id="goal-x"
-                  class="form-control"
-                  step="0.1"
-                />
-              </div>
-              <div class="form-group">
-                <label for="goal-y">Y Coordinate:</label>
-                <input
-                  type="number"
-                  id="goal-y"
-                  class="form-control"
-                  step="0.1"
-                />
-              </div>
+            <h4>Map</h4>
+            <div id="map-container" style="position: relative">
+              <img
+                id="map-image"
+                src="Images/map.png"
+                alt="Map Image"
+                style="max-width: 100%; height: auto"
+              />
+              <canvas
+                id="goal-canvas"
+                style="position: absolute; top: 0; left: 0"
+              ></canvas>
+            </div>
+            <div>
               <button type="button" id="send-goal" class="btn btn-primary">
                 Send Goal
               </button>
-            </form>
+            </div>
+            <p id="selected-coordinates"></p>
           </div>
-          <div class="col-md-2"></div>
-        </div>
-        <div class="row my-4">
-          <div class="col-md-2"></div>
-          <div class="col md">
-            <button type="button" id="send-cabin" class="btn btn-secondary">
-              Cabin
-            </button>
+          <div class="col-md-4">
+            <div class="row" style="margin-bottom: 20px">
+              <h4>Set Coordinates</h4>
+              <form id="goal-form">
+                <div class="form-group">
+                  <label for="goal-x">X Coordinate:</label>
+                  <input
+                    type="number"
+                    id="goal-x"
+                    class="form-control"
+                    step="0.1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="goal-y">Y Coordinate:</label>
+                  <input
+                    type="number"
+                    id="goal-y"
+                    class="form-control"
+                    step="0.1"
+                  />
+                </div>
+                <button type="button" id="send-goal" class="btn btn-primary">
+                  Send Goal
+                </button>
+              </form>
+            </div>
+            <div class="row">
+              <h4>Custom goals</h4>
+            </div>
+            <div class="row-md-4">
+              <button
+                type="button"
+                id="send-cabin"
+                class="btn btn-secondary"
+                style="margin-top: 10px"
+              >
+                Cabin
+              </button>
+            </div>
+            <div class="row-md-4">
+              <button
+                type="button"
+                id="send-door"
+                class="btn btn-secondary"
+                style="margin-top: 10px"
+              >
+                Door
+              </button>
+            </div>
           </div>
         </div>
       </div>

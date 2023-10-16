@@ -1,44 +1,58 @@
-var publishImmidiately = true;
 var ros;
-
+var canvas;
+var ctx;
+var selectedCoordinates;
 var cabinCoordinates = {
   x: 3.5,
-  y: 2.75
+  y: 2.75,
+};
+var doorCoordinates = {
+  x: -3,
+  y: -2,
 };
 
+document.addEventListener("DOMContentLoaded", function () {
+  canvas = document.getElementById("goal-canvas");
+  ctx = canvas.getContext("2d");
+  canvas.width = document.getElementById("map-image").width;
+  canvas.height = document.getElementById("map-image").height;
+  selectedCoordinates = document.getElementById("selected-coordinates")
+});
+
+function drawMarker(x, y) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.arc(x, y, 5, 0, 2 * Math.PI);
+  ctx.fill();
+}
 
 function sendNavigationGoal(x, y) {
   var pose = new ROSLIB.Message({
     header: {
-        frame_id: 'map' // Adjust the frame_id according to your robot's setup.
+      frame_id: "map",
     },
     pose: {
-        position: {
-            x: x,
-            y: y,
-            z: 0.0
-        },
-        orientation: {
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-            w: 1.0
-        }
-    }
+      position: {
+        x: x,
+        y: y,
+        z: 0.0,
+      },
+      orientation: {
+        x: 0.0,
+        y: 0.0,
+        z: 0.0,
+        w: 1.0,
+      },
+    },
   });
-
-// Define the goal topic and publish the goal message.
   var goalTopic = new ROSLIB.Topic({
     ros: ros,
-    name: '/move_base_simple/goal', // Adjust the topic name according to your robot's setup.
-    messageType: 'geometry_msgs/PoseStamped'
+    name: "/move_base_simple/goal",
+    messageType: "geometry_msgs/PoseStamped",
   });
-
   goalTopic.publish(pose);
 }
-
-//In this code, when the user enters the X and Y coordinates for the navigation goal and clicks the "Send Goal" button, it sends a message to your robot containing the goal coordinates. You'll need to adjust the code to match your robot's specific setup, including the message type, topic, and message format.
-// Make sure to replace 'your_custom_message_type' and '/navigation_goal' with the appropriate values for your robot's navigation system.
 
 window.onload = function () {
   robot_IP = "192.168.64.63";
@@ -50,6 +64,13 @@ window.onload = function () {
   });
   ros.on("error", function (error) {
     console.error("Error connecting to ROSBridge server:", error);
+  });
+  canvas.addEventListener("click", function (event) {
+    var rect = canvas.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+    selectedCoordinates.textContent = `Selected Coordinates: (${x.toFixed(2)}, ${y.toFixed(2)})`;
+    drawMarker(x, y);
   });
   var sendGoalButton = document.getElementById("send-goal");
   sendGoalButton.addEventListener("click", function () {
@@ -64,7 +85,10 @@ window.onload = function () {
   });
   var sendCabinButton = document.getElementById("send-cabin");
   sendCabinButton.addEventListener("click", function () {
-    // Send the pre-defined cabin coordinates.
     sendNavigationGoal(cabinCoordinates.x, cabinCoordinates.y);
+  });
+  var sendDoorButton = document.getElementById("send-door");
+  sendDoorButton.addEventListener("click", function () {
+    sendNavigationGoal(doorCoordinates.x, doorCoordinates.y);
   });
 };
