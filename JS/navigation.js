@@ -1,17 +1,40 @@
 var publishImmidiately = true;
 var ros;
 
+var cabinCoordinates = {
+  x: 3.5,
+  y: 2.75
+};
+
+
 function sendNavigationGoal(x, y) {
-  var goalMessage = new ROSLIB.Message({
-    x: x,
-    y: y,
+  var pose = new ROSLIB.Message({
+    header: {
+        frame_id: 'map' // Adjust the frame_id according to your robot's setup.
+    },
+    pose: {
+        position: {
+            x: x,
+            y: y,
+            z: 0.0
+        },
+        orientation: {
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+            w: 1.0
+        }
+    }
   });
+
+// Define the goal topic and publish the goal message.
   var goalTopic = new ROSLIB.Topic({
     ros: ros,
-    name: "/navigation_goal", // Adjust the topic name according to your robot's setup.
-    messageType: "your_custom_message_type", // Modify this to your message type.
+    name: '/move_base_simple/goal', // Adjust the topic name according to your robot's setup.
+    messageType: 'geometry_msgs/PoseStamped'
   });
-  goalTopic.publish(goalMessage);
+
+  goalTopic.publish(pose);
 }
 
 //In this code, when the user enters the X and Y coordinates for the navigation goal and clicks the "Send Goal" button, it sends a message to your robot containing the goal coordinates. You'll need to adjust the code to match your robot's specific setup, including the message type, topic, and message format.
